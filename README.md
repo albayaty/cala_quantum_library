@@ -149,7 +149,7 @@ Next, the CALA-*n* quantum library consists of five callable functions as follow
 
 Based on the heavy-hex layout of IBM quantum computers of 127 qubits illustrated in the figure below, a developer can construct cost-effective gates of CALA-*n* up to 5 qubits, using the I-shape qubits' arrangement as denoted by the red box in this figure. For that, the list of indexed qubits [61, 62, 63, 72, 80, 81, 82] will be utilized in the following section to construct cost-effective 4-bit and 5-bit gates of CALA-*n* quantum library, and SWAP gates are never added to their final transpiled quantum circuits. Note that any I-shape of 7 qubits' arrangement can be utilized in such a layout.
 
-![layout](images/layout.png)
+![layout](images/layout.png "The layout of an IBM quantum computer (127 qubits)")
 
 Therefore, various 4-bit and 5-bit gates of CALA-*n* quantum library can be constructed for specific Boolean and Phase purposes, such as OR-AND-OR (as a POS structure), AND-OR-AND (as a SOP structure), AND-XOR-AND (as an ESOP structure), CNF-XOR SAT, DNF-XOR SAT, majority, implication-inhibition, inhibition-implication, quantum Boolean-based gates for Boolean oracles, quantum Phase-based gates for Phase oracles, just to name a few.
 
