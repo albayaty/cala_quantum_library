@@ -1,6 +1,8 @@
 # CALA-*n* Quantum Library
 
-CALA-*n* is a quantum library of **Clifford+T-based Architecture of Layout-Aware *n*-bit gates**. CALA-*n* quantum library is proposed for cost-effective quantum gates transpilation, based on the layouts and the number of *n* neighboring physical qubits for IBM quantum computers, where 2 <= *n* <= 5 qubits. All *n*-bit gates of CALA-*n* quantum library are constructed from Clifford+T gates as well as designed using the geometrical approach of the Bloch sphere, based on the visual representations of the rotational quantum operations for IBM single-qubit basis gates (X, √X, and RZ) and IBM double-qubit basis gate (CX or ECR). In other words, the Bloch sphere is utilized in the CALA-*n* quantum library as a **geometrical design tool**.
+CALA-*n* is a quantum library of **Clifford+T-based Architecture of Layout-Aware *n*-bit gates**. CALA-*n* quantum library is proposed for cost-effective quantum gates transpilation, based on the layouts and the number of *n* neighboring physical qubits for IBM quantum computers, where 2 <= *n* <= 5 qubits. All *n*-bit gates of CALA-*n* quantum library are constructed from Clifford+T gates as well as designed using the geometrical approach of the Bloch sphere, based on the visual representations of the rotational quantum operations for IBM single-qubit basis gates (X, √X, and RZ) and IBM double-qubit basis gate (CX or ECR). In other words, the Bloch sphere is utilized in the CALA-*n* quantum library as a **geometrical design tool**, through the utilization of the XY-plane (as the top-view of the Bloch sphere) as illustrated below.
+
+![xy-plane](https://github.com/user-attachments/assets/4a0a74bb-0854-47d1-afbc-1df34414b466)
 
 CALA-*n* quantum library has a set of cost-effective *n*-bit gates, including:
 
@@ -32,7 +34,7 @@ The CALA-*n* is a derived quantum library from our GALA-*n* generic quantum libr
 
 For more information about the GALA-*n* quantum library and our introduced Bloch sphere approach, please read our paper entitled **"GALA-*n*: Generic Architecture of Layout-Aware *n*-Bit Quantum Operators for Cost-Effective Realization on IBM Quantum Computers"**, available at https://doi.org/10.48550/arXiv.2311.06760
 
-For more information about the CALA-*n* quantum library and our advanced Bloch sphere approach, please read our paper entitled **"CALA-*n*: A Quantum Library for Realizing Cost-Effective 2-, 3-, 4-, and 5-bit Gates on IBM Quantum Computers using Bloch Sphere Approach, Clifford+T Gates, and Layouts"**, available at https://doi.org/10.48550/arXiv.2408.01025
+For more information about the CALA-*n* quantum library and our developed Bloch sphere approach, please read our paper entitled **"CALA-*n*: A Quantum Library for Realizing Cost-Effective 2-, 3-, 4-, and 5-bit Gates on IBM Quantum Computers using Bloch Sphere Approach, Clifford+T Gates, and Layouts"**, available at https://doi.org/10.48550/arXiv.2408.01025
 
 ## Installation
 
@@ -236,22 +238,22 @@ Then, let's construct and use the cost-effective *n*-bit gates of CALA-*n* quant
     num_qubits = 127
     qc = QuantumCircuit(num_qubits)
     qc.compose( CALA_Boolean(gate="AND", as_block=False, statistics=False), qubits=[61,63,62], inplace=True )
-    qc.compose( CALA_Boolean(gate="AND", as_block=False, statistics=False), qubits=[62,72,81], inplace=True )
+    qc.compose( CALA_Boolean(gate="AND", as_block=False, statistics=False), qubits=[62,81,72], inplace=True )
     qc.draw(output='mpl', style='bw', scale=1.0, idle_wires=False, fold=-1);
     ```
-    ![figure6](https://github.com/user-attachments/assets/cb615612-e037-45f9-b861-4d34041e4ac1)
+    ![figure6](https://github.com/user-attachments/assets/26a8af47-4e68-41b3-8808-9e339fc78e9c)
 
 7. Implement the previous Example (6) as blocks:
     ```python
     num_qubits = 127
     qc = QuantumCircuit(num_qubits)
     qc.compose( CALA_Boolean(gate="AND", as_block=True, statistics=False), qubits=[61,63,62], inplace=True )
-    qc.compose( CALA_Boolean(gate="AND", as_block=True, statistics=False), qubits=[62,72,81], inplace=True )
+    qc.compose( CALA_Boolean(gate="AND", as_block=True, statistics=False), qubits=[62,81,72], inplace=True )
     qc.draw(output='mpl', style='bw', scale=1.0, idle_wires=False, fold=-1);
     ```
-    ![figure7](https://github.com/user-attachments/assets/24ac1a47-eafd-4050-a783-f8d73fd83f31)
+    ![figure7](https://github.com/user-attachments/assets/ef55ea56-4795-41d7-99cf-27f797958067)
 
-8. Construct the 5-bit AND gate as blocks, and map its target qubit in the middle between the four control qubits, based on the I-shape shown in the layout figure above. Note that this requires to utilize:
+8. Construct the 5-bit AND gate as blocks, and map its target qubit in the middle among the four control qubits. Note that this requires to utilize:
     * Three 3-bit AND gates.
     * Four control qubits at the indices 61, 63, 80, and 82.
     * One target qubit at the index 72.
@@ -267,7 +269,7 @@ Then, let's construct and use the cost-effective *n*-bit gates of CALA-*n* quant
     ```
     ![figure8](https://github.com/user-attachments/assets/ae0b025d-4d75-42dc-b5a9-16769d5f0d26)
 
-9. Construct the 3-bit Fredkin gate as a quantum circuit, where its first and second targets utilize the indices 63 and 62, respectively:
+9. Construct the 3-bit Fredkin gate as a quantum circuit, where its first and second target qubits utilize the indices 63 and 62, respectively:
     ```python
     num_qubits = 127
     qc = QuantumCircuit(num_qubits)
@@ -280,7 +282,7 @@ Then, let's construct and use the cost-effective *n*-bit gates of CALA-*n* quant
     * One 3-bit AND gate.
     * One 3-bit Fredkin gate.
     * Two control qubits at the indices 61 and 63.
-    * First and second targets at the indices 81 and 72, respectively.
+    * First and second target qubits at the indices 81 and 72, respectively.
     * One ancilla qubit at the index 62.
     
     ```python
@@ -338,7 +340,7 @@ Then, let's construct and use the cost-effective *n*-bit gates of CALA-*n* quant
 
 In case you are utilizing our *n*-bit gates of CALA-*n* quantum library in your research work, we would be grateful if you cited our publication:
 
-A. Al-Bayaty, X. Song, M. Perkowski, "CALA-n: A quantum library for realizing cost-effective 2-, 3-, 4-, and 5-bit gates on IBM quantum computers using Bloch sphere approach, Clifford+T gates, and layouts," 2024, *arXiv:2408.01025*.
+A. Al-Bayaty, X. Song, and M. Perkowski, "CALA-n: A quantum library for realizing cost-effective 2-, 3-, 4-, and 5-bit gates on IBM quantum computers using Bloch sphere approach, Clifford+T gates, and layouts," 2024, *arXiv:2408.01025*.
 
 Or, using BibTeX style:
 
