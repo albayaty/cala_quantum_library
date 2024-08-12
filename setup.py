@@ -1,15 +1,15 @@
 from setuptools import setup
 
 setup(
-    name = 'gala_quantum_library',
-    packages = ['gala_quantum_library'],
+    name = 'cala_quantum_library',
+    packages = ['cala_quantum_library'],
     version = '1.1',
     license = 'Apache-2.0',
-    description = 'GALA-n Quantum Library',
+    description = 'CALA-n Quantum Library',
     author = 'Ali Al-Bayaty',
     author_email = 'albayaty@pdx.edu',
     url = 'https://github.com/albayaty/',
-    download_url = 'https://github.com/albayaty/gala_quantum_library/',
+    download_url = 'https://github.com/albayaty/cala_quantum_library/',
     keywords = ['quantum computing', 'quantum gates', 'quantum layouts', 'Bloch sphere'],
     classifiers = [
 		'Development Status :: 5 - Production/Stable',
