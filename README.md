@@ -1,6 +1,6 @@
 # CALA-*n* Quantum Library
 
-CALA-*n* is a quantum library of **Clifford+T-based Architecture of Layout-Aware *n*-bit gates**. CALA-*n* quantum library is proposed for cost-effective quantum gates transpilation, based on the layouts and the number of *n* neighboring physical qubits for IBM quantum computers, where 2 <= *n* <= 5 qubits. All *n*-bit gates of CALA-*n* quantum library are constructed from Clifford+T gates and designed using the geometrical approach of the Bloch sphere, based on the visual representations of the rotational quantum operations for IBM single-qubit basis gates (X, √X, and RZ) and IBM double-qubit basis gate (CX or ECR). In other words, the Bloch sphere is utilized in the CALA-*n* quantum library as a **geometrical design tool**.
+CALA-*n* is a quantum library of **Clifford+T-based Architecture of Layout-Aware *n*-bit gates**. CALA-*n* quantum library is proposed for cost-effective quantum gates transpilation, based on the layouts and the number of *n* neighboring physical qubits for IBM quantum computers, where 2 <= *n* <= 5 qubits. All *n*-bit gates of CALA-*n* quantum library are constructed from Clifford+T gates as well as designed using the geometrical approach of the Bloch sphere, based on the visual representations of the rotational quantum operations for IBM single-qubit basis gates (X, √X, and RZ) and IBM double-qubit basis gate (CX or ECR). In other words, the Bloch sphere is utilized in the CALA-*n* quantum library as a **geometrical design tool**.
 
 CALA-*n* quantum library has a set of cost-effective *n*-bit gates, including:
 
@@ -19,7 +19,7 @@ The cost-effectiveness of these *n*-bit gates of CALA-*n* quantum library comes 
 
 Experimentally, from the above-mentioned essential configurations, the final transpiled quantum circuits constructed from *n*-bit gates of CALA-*n* quantum library always have lower quantum costs and fewer depths than those constructed from standard *n*-bit quantum gates, e.g., *n*-bit Toffoli and *n*-bit Fredkin gates, for IBM quantum computers.
 
-The CALA-*n* is a derived quantum library from our GALA-*n* quantum library [[GitHub](https://github.com/albayaty/gala_quantum_library)], with the following distinctive features between them, where the utilized Clifford+T gates are: H, Z, T, T†, and CX.
+The CALA-*n* is a derived quantum library from our GALA-*n* generic quantum library [[GitHub](https://github.com/albayaty/gala_quantum_library)], with the following distinctive features between them, where their utilized Clifford+T gates are: I, H, Z, T, T†, and CX.
 
 | Features | GALA-*n* | CALA-*n* |
 | :------- | :------: | :------: |
@@ -66,7 +66,7 @@ First of all, please be sure that the following prerequisite packages have been 
 - `qiskit_aer` (simulating quantum circuits locally).
 - `qiskit_ibm_runtime` (transpiling and executing quantum circuits on IBM quantum computers).
 - `qiskit.visualization` (plotting histograms, distributions, etc.).
-- `numpy` (mathematical constants and calculations)
+- `numpy` (mathematical constants and calculations).
 - `matplotlib` (drawing quantum circuits).
 
 Next, the CALA-*n* quantum library consists of five callable functions as follows.
@@ -145,11 +145,11 @@ Next, the CALA-*n* quantum library consists of five callable functions as follow
     
     The `CALA_Miller` function returns the 3-bit Miller gate of CALA-*n* as a quantum circuit or a block. Note that this gate has 3 output qubits.
 
-Based on the heavy-hex layout of IBM quantum computers of 127 qubits illustrated in the figure below, a developer can construct cost-effective gates of CALA-*n* up to 5 qubits, using the I-shape qubits' arrangement as denoted by the red box in this figure. For that, the list of qubits [61, 62, 63, 72, 80, 81, 82] will be utilized in the following section to construct cost-effective 4-bit and 5-bit gates of CALA-*n* quantum library, and SWAP gates are never added to their final transpiled quantum circuits.
+Based on the heavy-hex layout of IBM quantum computers of 127 qubits illustrated in the figure below, a developer can construct cost-effective gates of CALA-*n* up to 5 qubits, using the I-shape qubits' arrangement as denoted by the red box in this figure. For that, the list of indexed qubits [61, 62, 63, 72, 80, 81, 82] will be utilized in the following section to construct cost-effective 4-bit and 5-bit gates of CALA-*n* quantum library, and SWAP gates are never added to their final transpiled quantum circuits. Note that any I-shape of 7 qubits' arrangement can be utilized in such a layout.
 
 ![layout](https://github.com/user-attachments/assets/c25fdf2c-913e-459a-bd0a-07b341d562a6)
 
-Therefore, various 4-bit and 5-bit gates of CALA-*n* can be constructed for specific Boolean and Phase purposes, such as OR-AND-OR (as a POS structure), AND-OR-AND (as a SOP structure), AND-XOR-AND (as an ESOP structure), CNF-XOR SAT, DNF-XOR SAT, majority, implication-inhibition, inhibition-implication, quantum Phase-based gates for Phase oracles, just to name a few.
+Therefore, various 4-bit and 5-bit gates of CALA-*n* quantum library can be constructed for specific Boolean and Phase purposes, such as OR-AND-OR (as a POS structure), AND-OR-AND (as a SOP structure), AND-XOR-AND (as an ESOP structure), CNF-XOR SAT, DNF-XOR SAT, majority, implication-inhibition, inhibition-implication, quantum Boolean-based gates for Boolean oracles, quantum Phase-based gates for Phase oracles, just to name a few.
 
 We introduce CALA-*n* as an open and generic quantum library for prospective quantum computing research, to develop interesting and cost-effective *n*-bit quantum gates, which can be easily adapted with different layouts of *n* neighboring physical qubits for superconducting quantum systems, e.g., IBM, Google, and Rigetti.
 
@@ -167,7 +167,7 @@ import matplotlib.pyplot as plt
 %matplotlib inline
 ```
 
-Then, let's construct and use the cost-effective *n*-bit gates of CALA-*n* quantum library in different scenarios as follows. Please observe the parameter `qubits=[qubits-mapping-list]` in Qiskit `compose()` instruction, this `[qubits-mapping-list]` gives the freedom of where to map the target qubit of an *n*-bit gate of CALA-*n* quantum library into the layout of an IBM quantum computer, to efficiently suit such a layout without adding any SWAP gate.
+Then, let's construct and use the cost-effective *n*-bit gates of CALA-*n* quantum library in different scenarios as follows. Please observe the parameter `qubits=[qubits-mapping-list]` in Qiskit `compose()` instruction, this `[qubits-mapping-list]` gives the freedom of where to map the target qubit of an *n*-bit gate of CALA-*n* quantum library into the layout of an IBM quantum computer, to efficiently suit such a layout without adding any SWAP gate. All the following examples utilize the list of indexed qubits [61, 62, 63, 72, 80, 81, 82], based on the I-shape shown in the figure above.
 
 1. Construct the 2-bit SWAP gate as a quantum circuit with statistics:
     ```python
@@ -217,7 +217,7 @@ Then, let's construct and use the cost-effective *n*-bit gates of CALA-*n* quant
     ```    
     ![figure4](https://github.com/user-attachments/assets/65bf632a-6b74-4bb7-8b2c-698decfd4a8e)
 
-5. Construct the 3-bit AND gate as a quantum circuit, and map its target qubit in the middle between the two control qubits, based on the I-shape shown in the layout figure above:
+5. Construct the 3-bit AND gate as a quantum circuit, and map its target qubit in the middle between the two control qubits:
     ```python
     num_qubits = 127
     qc = QuantumCircuit(num_qubits)
@@ -226,7 +226,7 @@ Then, let's construct and use the cost-effective *n*-bit gates of CALA-*n* quant
     ```    
     ![figure5](https://github.com/user-attachments/assets/f9f717f6-dc38-4034-97c7-58d4f3b03c91)
 
-6. Construct the 4-bit AND gate as a quantum circuit, and map its target qubit in the middle between the three control qubits, based on the I-shape shown in the layout figure above. Note that this requires to utilize:
+6. Construct the 4-bit AND gate as a quantum circuit, and map its target qubit in the middle among the three control qubits. Note that this requires to utilize:
     * Two 3-bit AND gates.
     * Three control qubits at the indices 61, 63, and 81.
     * One target qubit at the index 72.
