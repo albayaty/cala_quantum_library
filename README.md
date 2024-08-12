@@ -1,8 +1,8 @@
 # CALA-*n* Quantum Library
 
-CALA-*n* is a quantum library of **Clifford+T-based Architecture of Layout-Aware *n*-bit gates**. CALA-*n* quantum library is proposed for cost-effective quantum gates transpilation, based on the layouts and the number of *n* neighboring physical qubits for IBM quantum computers, where 2 <= *n* <= 5 qubits. All *n*-bit gates of CALA-*n* quantum library are constructed from Clifford+T gates as well as designed using the geometrical approach of the Bloch sphere, based on the visual representations of the rotational quantum operations for IBM single-qubit basis gates (X, √X, and RZ) and IBM double-qubit basis gate (CX or ECR). In other words, the Bloch sphere is utilized in the CALA-*n* quantum library as a **geometrical design tool**, through the utilization of the XY-plane (as the top-view of the Bloch sphere) as illustrated below.
+CALA-*n* is a quantum library of **Clifford+T-based Architecture of Layout-Aware *n*-bit gates**. CALA-*n* quantum library is proposed for cost-effective quantum gates transpilation, based on the layouts and the number of *n* neighboring physical qubits for IBM quantum computers, where 2 <= *n* <= 5 qubits. All *n*-bit gates of CALA-*n* quantum library are constructed from Clifford+T gates as well as designed using the geometrical approach of the Bloch sphere, based on the visual representations of the rotational quantum operations for IBM single-qubit basis gates (X, √X, and RZ) and IBM double-qubit basis gate (CX or ECR). In other words, the Bloch sphere is utilized in the CALA-*n* quantum library as a **geometrical design tool**, through the utilization of the XY-plane (the top-view of the Bloch sphere) as illustrated below.
 
-![xy-plane](images/xy-plane.png)
+![XY-plane](images/XY-plane.png "The XY-plane (the top-view of the Bloch sphere)")
 
 CALA-*n* quantum library has a set of cost-effective *n*-bit gates, including:
 
