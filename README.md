@@ -147,7 +147,7 @@ Next, the CALA-*n* quantum library consists of five callable functions as follow
 
 Based on the heavy-hex layout of IBM quantum computers of 127 qubits illustrated in the figure below, a developer can constructs cost-effective gates of CALA-*n* up to 5 qubits, using the I-shape qubits' arrangement as denoted by the red box in this figure. For that, the list of qubits [61, 62, 63, 72, 80, 81, 82] will be utilized in the following section to construct cost-effective 4-bit and 5-bit gates of CALA-*n* quantum library, and SWAP gates are never added to their final transpiled quantum circuits.
 
-![layout]()
+![layout](https://github.com/user-attachments/assets/c25fdf2c-913e-459a-bd0a-07b341d562a6)
 
 Therefore, various 4-bit and 5-bit gates of CALA-*n* can be constructed for specific-tasks, such as OR-AND-OR (as a POS structure), AND-OR-AND (as a SOP structure), AND-XOR-AND (as an ESOP structure), CNF-XOR SAT, DNF-XOR SAT, majority, implication-inhibition, inhibition-implication, just to name a few.
 
@@ -182,18 +182,20 @@ Then, let's construct and use the cost-effective *n*-bit gates of CALA-*n* quant
 	    RZ gates = 0
 	    CX gates = 2
     ```
-    ![figure1]()
+    ![figure1](https://github.com/user-attachments/assets/325f4bd8-2e6e-4db3-aea0-94cc6f144a5a)
 
-2. Construct the 2-bit controlled-√X† gate as a quantum circuit:
+
+3. Construct the 2-bit controlled-√X† gate as a quantum circuit:
     ```python
     num_qubits = 127
     qc = QuantumCircuit(num_qubits)
     qc.compose( CALA_CSX(gate="CSXdg", as_block=False, statistics=False), qubits=[60,61], inplace=True )
     qc.draw(output='mpl', style='bw', scale=1.0, idle_wires=False, fold=-1);
     ```
-    ![figure2]()
+    ![figure2](https://github.com/user-attachments/assets/91cae625-235d-40f0-8e23-5ae800e839e4)
 
-3. Construct the 3-bit AND gate as a quantum circuit with statistics:
+
+5. Construct the 3-bit AND gate as a quantum circuit with statistics:
     ```python
     num_qubits = 127
     qc = QuantumCircuit(num_qubits)
@@ -206,27 +208,30 @@ Then, let's construct and use the cost-effective *n*-bit gates of CALA-*n* quant
 	    RZ gates = 4
 	    CX gates = 3
     ```
-    ![figure3]()
+    ![figure3](https://github.com/user-attachments/assets/3a692f4d-4c1a-440e-ac2d-413d3f74d230)
 
-4. Construct the 3-bit AND gate as a block without statistics:
+
+7. Construct the 3-bit AND gate as a block without statistics:
     ```python
     num_qubits = 127
     qc = QuantumCircuit(num_qubits)
     qc.compose( CALA_Boolean(gate="AND", as_block=True, statistics=False), qubits=[61,62,63], inplace=True )
     qc.draw(output='mpl', style='bw', scale=1.0, idle_wires=False, fold=-1);
     ```    
-    ![figure4]()
+    ![figure4](https://github.com/user-attachments/assets/65bf632a-6b74-4bb7-8b2c-698decfd4a8e)
 
-5. Construct the 3-bit AND gate as a quantum circuit, and map its target qubit in the middle between the two control qubits, based on the I-shape shown in the layout figure above:
+
+9. Construct the 3-bit AND gate as a quantum circuit, and map its target qubit in the middle between the two control qubits, based on the I-shape shown in the layout figure above:
     ```python
     num_qubits = 127
     qc = QuantumCircuit(num_qubits)
     qc.compose( CALA_Boolean(gate="AND", as_block=False, statistics=False), qubits=[61,63,62], inplace=True )
     qc.draw(output='mpl', style='bw', scale=1.0, idle_wires=False, fold=-1);
     ```    
-    ![figure5]()
+    ![figure5](https://github.com/user-attachments/assets/f9f717f6-dc38-4034-97c7-58d4f3b03c91)
 
-6. Construct the 4-bit AND gate as a quantum circuit, and map its target qubit in the middle between the three control qubits, based on the I-shape shown in the layout figure above. Note that this requires to utilize:
+
+11. Construct the 4-bit AND gate as a quantum circuit, and map its target qubit in the middle between the three control qubits, based on the I-shape shown in the layout figure above. Note that this requires to utilize:
     * Two 3-bit AND gates.
     * Three control qubits at the indices 61, 63, and 81.
     * One target qubit at the index 72.
@@ -239,9 +244,10 @@ Then, let's construct and use the cost-effective *n*-bit gates of CALA-*n* quant
     qc.compose( CALA_Boolean(gate="AND", as_block=False, statistics=False), qubits=[62,72,81], inplace=True )
     qc.draw(output='mpl', style='bw', scale=1.0, idle_wires=False, fold=-1);
     ```
-    ![figure6]()
+    ![figure6](https://github.com/user-attachments/assets/cb615612-e037-45f9-b861-4d34041e4ac1)
 
-7. Implement the previous Example (6) as blocks:
+
+13. Implement the previous Example (6) as blocks:
     ```python
     num_qubits = 127
     qc = QuantumCircuit(num_qubits)
@@ -249,9 +255,10 @@ Then, let's construct and use the cost-effective *n*-bit gates of CALA-*n* quant
     qc.compose( CALA_Boolean(gate="AND", as_block=True, statistics=False), qubits=[62,72,81], inplace=True )
     qc.draw(output='mpl', style='bw', scale=1.0, idle_wires=False, fold=-1);
     ```
-    ![figure7]()
+    ![figure7](https://github.com/user-attachments/assets/24ac1a47-eafd-4050-a783-f8d73fd83f31)
 
-8. Construct the 5-bit AND gate as blocks, and map its target qubit in the middle between the four control qubits, based on the I-shape shown in the layout figure above. Note that this requires to utilize:
+
+15. Construct the 5-bit AND gate as blocks, and map its target qubit in the middle between the four control qubits, based on the I-shape shown in the layout figure above. Note that this requires to utilize:
     * Three 3-bit AND gates.
     * Four control qubits at the indices 61, 63, 80, and 82.
     * One target qubit at the index 72.
@@ -265,18 +272,20 @@ Then, let's construct and use the cost-effective *n*-bit gates of CALA-*n* quant
     qc.compose( CALA_Boolean(gate="AND", as_block=True, statistics=False), qubits=[62,81,72], inplace=True )
     qc.draw(output='mpl', style='bw', scale=1.0, idle_wires=False, fold=-1);
     ```
-    ![figure8]()
+    ![figure8](https://github.com/user-attachments/assets/ae0b025d-4d75-42dc-b5a9-16769d5f0d26)
 
-9. Construct the 3-bit Fredkin gate as a quantum circuit, where its first and second targets utilize the indices 63 and 62, respectively:
+
+17. Construct the 3-bit Fredkin gate as a quantum circuit, where its first and second targets utilize the indices 63 and 62, respectively:
     ```python
     num_qubits = 127
     qc = QuantumCircuit(num_qubits)
     qc.compose( CALA_Fredkin(as_block=False, statistics=False), qubits=[61,63,62], inplace=True )
     qc.draw(output='mpl', style='bw', scale=1.0, idle_wires=False, fold=-1);
     ```
-    ![figure9]()
+    ![figure9](https://github.com/user-attachments/assets/bc114e0b-455b-490d-b13a-2bf740adee01)
 
-10. Construct the 4-bit Fredkin gate as a quantum circuit. Note that this requires to utilize:
+
+19. Construct the 4-bit Fredkin gate as a quantum circuit. Note that this requires to utilize:
     * One 3-bit AND gate.
     * One 3-bit Fredkin gate.
     * Two control qubits at the indices 61 and 63.
@@ -290,18 +299,20 @@ Then, let's construct and use the cost-effective *n*-bit gates of CALA-*n* quant
     qc.compose( CALA_Fredkin(as_block=False, statistics=False), qubits=[62,81,72], inplace=True )
     qc.draw(output='mpl', style='bw', scale=1.0, idle_wires=False, fold=-1);
     ```
-    ![figure10]()
+    ![figure10](https://github.com/user-attachments/assets/a5ae0059-684a-489b-8732-7b8a9b6042d3)
 
-11. Construct the 3-bit Miller gate as a quantum circuit, and map its target qubit in the middle between the control qubits:
+
+21. Construct the 3-bit Miller gate as a quantum circuit, and map its target qubit in the middle between the control qubits:
     ```python
     num_qubits = 127
     qc = QuantumCircuit(num_qubits)
     qc.compose( CALA_Miller(as_block=False, statistics=False), qubits=[61,63,62], inplace=True )
     qc.draw(output='mpl', style='bw', scale=1.0, idle_wires=False, fold=-1);
     ```
-    ![figure11]()
+    ![figure11](https://github.com/user-attachments/assets/79cdb837-b070-40b9-b389-9e9c8f8ced88)
 
-12. Construct the 3-bit controlled-√X gate as a quantum circuit. Note that this requires to utilize:
+
+23. Construct the 3-bit controlled-√X gate as a quantum circuit. Note that this requires to utilize:
     * One 3-bit AND gate.
     * One 2-bit controlled-√X gate.
     * Two control qubits at the indices 61 and 63.
@@ -315,9 +326,10 @@ Then, let's construct and use the cost-effective *n*-bit gates of CALA-*n* quant
     qc.compose( CALA_CSX(gate="CSX", as_block=False, statistics=False), qubits=[62,72], inplace=True )
     qc.draw(output='mpl', style='bw', scale=1.0, idle_wires=False, fold=-1);
     ```
-    ![figure12]()
+    ![figure12](https://github.com/user-attachments/assets/b77444be-6906-4ac7-a6eb-c9879bed0677)
 
-13. Implement an arbitrary 5-bit OR-AND-OR gate (as a POS structure) as blocks. Note that this requires to utilize:
+
+25. Implement an arbitrary 5-bit OR-AND-OR gate (as a POS structure) as blocks. Note that this requires to utilize:
     * One 3-bit AND gate.
     * Two 3-bit OR gate.
     * Four control qubits at the indices 61, 63, 80, and 82.
@@ -332,7 +344,8 @@ Then, let's construct and use the cost-effective *n*-bit gates of CALA-*n* quant
     qc.compose( CALA_Boolean(gate="AND", as_block=True, statistics=False), qubits=[62,81,72], inplace=True )
     qc.draw(output='mpl', style='bw', scale=1.0, idle_wires=False, fold=-1);
     ```
-    ![figure13]()
+    ![figure13](https://github.com/user-attachments/assets/b888c22b-3e53-448f-a9eb-8fdc573b3169)
+
 
 ## Reference
 
