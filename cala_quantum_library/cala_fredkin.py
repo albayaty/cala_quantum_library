@@ -50,7 +50,6 @@ def CALA_Fredkin(as_block=False, statistics=False):
 	    return CALA_gate
 
 
-
 # ----------------------------------------------------------------------
 # Counting the number of gates of CALA_Fredkin():
 # ----------------------------------------------------------------------
