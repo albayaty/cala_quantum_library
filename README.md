@@ -1,5 +1,12 @@
 # CALA-*n* Quantum Library
 
+![Tests](https://github.com/albayaty/cala_quantum_library/actions/workflows/tests.yml/badge.svg)
+![PythonVer](https://img.shields.io/badge/python-3.9-blue.svg)
+![PythonVer](https://img.shields.io/badge/python-3.10-blue.svg)
+![PythonVer](https://img.shields.io/badge/python-3.11-blue.svg)
+![PythonVer](https://img.shields.io/badge/python-3.12-blue.svg)
+![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)
+
 CALA-*n* is a quantum library of **Clifford+T-based Architecture of Layout-Aware *n*-bit gates**. CALA-*n* quantum library is proposed for cost-effective quantum gates transpilation, based on the layouts and the number of *n* neighboring physical qubits for IBM quantum computers, where 2 <= *n* <= 5 qubits. All *n*-bit gates of CALA-*n* quantum library are constructed from Clifford+T gates as well as designed using the geometrical approach of the Bloch sphere, based on the visual representations of the rotational quantum operations for IBM single-qubit basis gates (X, √X, and RZ) and IBM double-qubit basis gate (CX or ECR). In other words, the Bloch sphere is utilized in the CALA-*n* quantum library as a **geometrical design tool**, through the utilization of the XY-plane (the top-view of the Bloch sphere) as illustrated below.
 
 ![XY-plane](images/XY-plane.png "The XY-plane (the top-view of the Bloch sphere)")
@@ -57,19 +64,19 @@ Instead, the CALA-*n* quantum library can be manually installed as stated in the
     Or, using this command:
 
     ```bash
-    python3 -m pip install -e .
+    python3 -m pip install .
     ```
 
 ## Usage
 
 First of all, please be sure that the following prerequisite packages have been installed:
 
-- `qiskit` (version >= 1.0).
-- `qiskit_aer` (simulating quantum circuits locally).
-- `qiskit_ibm_runtime` (transpiling and executing quantum circuits on IBM quantum computers).
-- `qiskit.visualization` (plotting histograms, distributions, etc.).
-- `numpy` (mathematical constants and calculations).
-- `matplotlib` (drawing quantum circuits).
+- [X] `qiskit` (version >= 1.0).
+- [X] `qiskit_aer` (simulating quantum circuits locally).
+- [X] `qiskit_ibm_runtime` (transpiling and executing quantum circuits on IBM quantum computers).
+- [X] `qiskit.visualization` (plotting histograms, distributions, etc.).
+- [X] `numpy` (mathematical constants and calculations).
+- [X] `matplotlib` (drawing quantum circuits).
 
 Next, the CALA-*n* quantum library consists of five callable functions as follows.
 
