@@ -98,3 +98,25 @@ def CALA_Boolean(gate="AND", as_block=False, statistics=False):
 	    return CALA_gate.to_gate(label=gate+" gate\n\n(CALA-3)")
     else:
 	    return CALA_gate
+
+
+# ----------------------------------------------------------------------
+# Counting the number of gates of CALA_Boolean():
+# ----------------------------------------------------------------------
+
+def num_gates_CALA_Boolean():
+    """
+    This function counts the number of gates of CALA_Boolean().
+    
+    Returns
+    -------
+    The number of gates of CALA_Boolean().
+    """
+    
+    H = 2
+    RZ = 4
+    CX = 3
+    
+    gates = H + RZ + CX
+    
+    return gates
