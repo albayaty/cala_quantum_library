@@ -48,3 +48,26 @@ def CALA_Fredkin(as_block=False, statistics=False):
 	    return CALA_gate.to_gate(label="Fredkin gate\n\n(CALA-3)")
     else:
 	    return CALA_gate
+
+
+
+# ----------------------------------------------------------------------
+# Counting the number of gates of CALA_Fredkin():
+# ----------------------------------------------------------------------
+
+def num_gates_CALA_Fredkin():
+    """
+    This function counts the number of gates of CALA_Fredkin().
+    
+    Returns
+    -------
+    The number of gates of CALA_Fredkin().
+    """
+    
+    H = 2
+    RZ = 4
+    CX = 5
+    
+    gates = H + RZ + CX
+    
+    return gates
