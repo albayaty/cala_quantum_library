@@ -68,3 +68,26 @@ def CALA_CSX(gate="CSX", as_block=False, statistics=False):
 	    return CALA_gate.to_gate(label=gate+" gate\n\n(CALA-2)")
     else:
 	    return CALA_gate
+
+
+
+# ----------------------------------------------------------------------
+# Counting the number of gates of CALA_CSX():
+# ----------------------------------------------------------------------
+
+def num_gates_CALA_CSX():
+    """
+    This function counts the number of gates of CALA_CSX().
+    
+    Returns
+    -------
+    The number of gates of CALA_CSX().
+    """
+    
+    H = 2
+    RZ = 2
+    CX = 1
+    
+    gates = H + RZ + CX
+    
+    return gates
