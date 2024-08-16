@@ -51,7 +51,6 @@ def CALA_Miller(as_block=False, statistics=False):
 	    return CALA_gate
 
 
-
 # ----------------------------------------------------------------------
 # Counting the number of gates of CALA_Miller():
 # ----------------------------------------------------------------------
