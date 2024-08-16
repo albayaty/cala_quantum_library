@@ -47,3 +47,25 @@ def CALA_SWAP(as_block=False, statistics=False):
 	    return CALA_gate.to_gate(label="SWAP gate\n\n(CALA-2)")
     else:
 	    return CALA_gate
+
+
+# ----------------------------------------------------------------------
+# Counting the number of gates of CALA_SWAP():
+# ----------------------------------------------------------------------
+
+def num_gates_CALA_SWAP():
+    """
+    This function counts the number of gates of CALA_SWAP().
+    
+    Returns
+    -------
+    The number of gates of CALA_SWAP().
+    """
+    
+    H = 2
+    RZ = 0
+    CX = 2
+    
+    gates = H + RZ + CX
+    
+    return gates
