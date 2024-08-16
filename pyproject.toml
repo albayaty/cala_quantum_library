@@ -3,8 +3,8 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "gala_quantum_library"
-description = "GALA-n Quantum Library"
+name = "cala_quantum_library"
+description = "CALA-n Quantum Library"
 version = "1.1"
 readme = { file = "README.md", content-type = "text/markdown" }
 license = { file = "LICENSE" }
@@ -33,7 +33,7 @@ dynamic = ["dependencies"]
 
 [project.urls]
 Homepage = "https://github.com/albayaty"
-Repository = "https://github.com/albayaty/gala_quantum_library"
+Repository = "https://github.com/albayaty/cala_quantum_library"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
