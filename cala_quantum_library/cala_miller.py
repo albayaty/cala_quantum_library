@@ -49,3 +49,26 @@ def CALA_Miller(as_block=False, statistics=False):
 	    return CALA_gate.to_gate(label="Miller gate\n\n(CALA-3)")
     else:
 	    return CALA_gate
+
+
+
+# ----------------------------------------------------------------------
+# Counting the number of gates of CALA_Miller():
+# ----------------------------------------------------------------------
+
+def num_gates_CALA_Miller():
+    """
+    This function counts the number of gates of CALA_Miller().
+    
+    Returns
+    -------
+    The number of gates of CALA_Miller().
+    """
+    
+    H = 2
+    RZ = 4
+    CX = 7
+    
+    gates = H + RZ + CX
+    
+    return gates
