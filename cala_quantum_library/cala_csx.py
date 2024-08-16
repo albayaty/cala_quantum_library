@@ -70,7 +70,6 @@ def CALA_CSX(gate="CSX", as_block=False, statistics=False):
 	    return CALA_gate
 
 
-
 # ----------------------------------------------------------------------
 # Counting the number of gates of CALA_CSX():
 # ----------------------------------------------------------------------
