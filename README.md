@@ -35,9 +35,10 @@ The CALA-*n* is a derived quantum library from our GALA-*n* generic quantum libr
 
 | Features | GALA-*n* | CALA-*n* |
 | :------- | :------: | :------: |
-| *n* qubits | *n* >= 3 | 2 <= *n* <= 5 |
+| How many *n* qubits? | *n* >= 3 | 2 <= *n* <= 5 |
 | Constructed from Clifford+T gates? | Yes | Yes |
 | Constructed from non-Clifford+T gates? | Yes | No |
+| Utilize ancillary qubits? | No | Yes |
 | Has symmetrical structures? | Yes | Yes |
 | Has layout-aware architectures? | Yes | Yes |
 | Suitable for IBM quantum layouts? | Yes | Yes |
