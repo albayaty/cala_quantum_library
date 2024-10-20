@@ -358,9 +358,9 @@ Or, using BibTeX style:
 ```bibtex
 @article{calaquantumlibrary,
     title={CALA-n: A quantum library for realizing cost-effective 2-, 3-, 4-, and 5-bit gates on IBM quantum computers using Bloch sphere approach, Clifford+T gates, and layouts},
-    author={Al-Bayaty, Ali and Song, Xiaoyu and Perkowski, Marek},
+    author={Ali Al-Bayaty, Xiaoyu Song, and Marek Perkowski},
     journal={arXiv preprint arXiv:2408.01025},
-    note={CALA-n quantum library is available at \url{https://doi.org/10.48550/arXiv.2408.01025}},
-    year={2024}
+    year={2024},
+    url={https://doi.org/10.48550/arXiv.2408.01025}
 }
 ```
